@@ -1,5 +1,7 @@
 ##Status: We've begun active CONIKS development again. As part of this effort, this repository has been migrated to the Princeton CITP organization on Github. Please join the [CONIKS discussion mailing list] (https://coniks.cs.princeton.edu/subscribe.html) for updates on CONIKS!
 
+[![Join the chat at https://gitter.im/dedis/coniks-ref-implementation](https://badges.gitter.im/dedis/coniks-ref-implementation.svg)](https://gitter.im/dedis/coniks-ref-implementation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 #CONIKS
 
 Copyright (C) 2015-16 Princeton University.
