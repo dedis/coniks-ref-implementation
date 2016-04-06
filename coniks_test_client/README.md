@@ -23,9 +23,13 @@ In *ClientConfig.java*: Set the port number, the absolute path to your trusted c
 
 ###Building
 We understand that people may not necessarily want to build and run the client on the same machine. 
-- Compiling: 
-In the *Makefile*, set the directory where you want the compiler to place the class files in **CLASS_DEST**. Then run:
+- Prerequisites:
+- Prerequisites:
+You'll need Java 7 or greater and need to ensure that the protobufs have been compiled with the most recent version of protoc.
+- Compiling:
+Specify where you would like the .class files to be placed, and run make:
 ```
+export CLASS_DEST=/path/to/classes
 make
 ```
 - Pushing the compiled code to a remote machine:
