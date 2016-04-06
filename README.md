@@ -1,19 +1,38 @@
-#CONIKS
+# CONIKS/CoSi: CoSiNIKS
 
-[![Build Status](https://travis-ci.org/citp/coniks-ref-implementation.svg?branch=master)](https://travis-ci.org/citp/coniks-ref-implementation)
+This is a fork of the CONIKS reference implementation. Please check the 
+[original repository](https://github.com/citp/coniks-ref-implementation) 
+on how-to set-up and use the CONIKS test-server and test-client.
 
-Copyright (C) 2015-16 Princeton University.
+## Changes in this fork
 
-https://coniks.cs.princeton.edu
+The signed tree roots (STRs) get signed by a collective (CoSi) signature 
+instead of by the identity provider only.
+The main changes can be found [here](XXX).
 
-##Introduction
-CONIKS is a key management service that provides consistency and privacy for end-user public keys. It protects users against malicious or coerced key servers which may want to impersonate these users to compromise their secure communications: CONIKS will quickly detect any spurious keys, or any versions of the key directory that are inconsistent between two or more users. Nonetheless, CONIKS users do not need to worry about or even see these protocols, or the encryption keys, as CONIKS seamlessly integrates into any existing secure messaging application.
+In order to run this PoC CoSi integration make sure you understood 
+how-to run and use the original reference implementation first. 
+Then, you need a current [CoSi release]
+(https://github.com/dedis/cothority/releases/tag/0.7.5). Copy all the
+the files you extracted from the release archive to the class path 
+(which you can specify in the `CLASS_DEST` variable in the [MAKEFILE]
+ (https://github.com/dedis/coniks-ref-implementation/blob/master/coniks_server/Makefile). 
+ Also copy `dedis-servers.toml` to the same path and rename the file to
+ `servers.toml`.
+ 
+ While running the test-server you should see an output similar to:
+ ```
+ Written data to sign to file /var/folders/z7/qx3bqsrx79755g3tzql2s8200051m1/T/data-to-sign223591340184638199.bin
+ Output of running [cosi, sign, file] is:
+ 3 : ( main.signFile: 150) - &{[190 114 198 72 77 18 57 191 211 91 83 125 162 205 123 191 56 53 59 102 195 38 8 211 140 195 180 97 134 254 86 61] 0e73cf5cf066ce7c4a96d5ca3a8540628d6f81a3e6753b2c0b68e698a1070269 0c387a8617ce566d4c3ddd99c9f3cd583aa96228cfb5963d2ae0580c9594bd5e}
+ 3 : ( main.signFile: 155) - Signature written to: /var/folders/z7/qx3bqsrx79755g3tzql2s8200051m1/T/data-to-sign223591340184638199.bin.sig
+ 
+ CoSi signature:
+ {
+ 	"Sum": "vnLGSE0SOb/TW1N9os17vzg1O2bDJgjTjMO0YYb+Vj0=",
+ 	"Challenge": "DnPPXPBmznxKltXKOoVAYo1vgaPmdTssC2jmmKEHAmk=",
+ 	"Response": "DDh6hhfOVm1MPd2ZyfPNWDqpYijPtZY9KuBYDJWUvV4="
+ }
+``` 
 
-##CONIKS Reference Implementation
-This software package serves as a reference implementation for the CONIKS system. The basic [CONIKS server](https://github.com/citp/coniks-ref-implementation/tree/master/coniks_server) and simple [CONIKS test client](https://github.com/citp/coniks-ref-implementation/tree/master/coniks_test_client) demonstrate the functionality of the system and the CONIKS protocols, so anyone interested in deploying CONIKS in their secure messaging system can then use this software package as a reference when implementing the service. This package also contains the [common message format definitions](https://github.com/citp/coniks-ref-implementation/tree/master/coniks_common) that CONIKS servers and clients use to communicate. 
 
-## Disclaimer
-Please keep in mind that this CONIKS reference implementation is under active development. The repository may contain experimental features that aren't fully tested. We recommend using a [tagged release](https://github.com/citp/coniks-ref-implementation/releases).
-
-##Documentation
-[Read the package's Java API (javadoc)](https://citp.github.io/coniks-ref-implementation/)

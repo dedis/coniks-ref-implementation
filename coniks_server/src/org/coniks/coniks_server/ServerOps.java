@@ -61,8 +61,7 @@ import org.javatuples.*;
 public class ServerOps{
 
     // hardcoded for now, this should prob go into the config file?
-    private static DebugLogger debugLog = DebugLogger.getInstance(
-                                                                  "/path/to/logs/debug-%g");
+    private static DebugLogger debugLog = DebugLogger.getInstance("logs/debug-%g");
 
     /** Generates the STR from the root node {@code rn}.
      *
